@@ -1,3 +1,27 @@
+Handlebars.registerHelper('english', function(value) {
+    if (value == true) {
+        return new Handlebars.SafeString(
+    "<span class='glyphicon glyphicon-ok'></span>"
+  );
+    } else {
+         return new Handlebars.SafeString(
+    "<span class='glyphicon glyphicon-ban-circle'></span>"
+  );
+    }
+});
+
+
+Handlebars.registerHelper('pop-num', function(value) {
+    if (value > 100000) {
+
+    } else if (value > 5000000 ) {
+
+    } else {
+
+    }
+});
+
+
 var source   = $("#entry-template").html();
 var template = Handlebars.compile(source);
 
@@ -14,12 +38,3 @@ var data = { countries: [
 $('body').append(template(data));
 
 
-Handlebars.registerHelper('equal', function(lvalue, rvalue, options) {
-    if (arguments.length < 3)
-        throw new Error("Handlebars Helper equal needs 2 parameters");
-    if( lvalue!=rvalue ) {
-        return options.inverse(this);
-    } else {
-        return options.fn(this);
-    }
-});
